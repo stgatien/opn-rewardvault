@@ -1,5 +1,7 @@
 # RewardVault
 
+Transparent reward assignment and decentralized claiming protocol built on OPN Chain.
+
 <p align="center">
   <img src="./assets/preview.png" width="1000">
 </p>
