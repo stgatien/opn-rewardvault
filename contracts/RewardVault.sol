@@ -3,33 +3,40 @@ pragma solidity ^0.8.20;
 
 contract RewardVault {
 
-    mapping(address => uint256) public rewards;
     address public owner;
 
-    event RewardDeposited(
-        address indexed receiver,
+    mapping(address => uint256)
+        public pendingRewards;
+
+    uint256
+        public totalDistributed;
+
+    event RewardAssigned(
+        address indexed user,
         uint256 amount
     );
 
     event RewardClaimed(
-        address indexed receiver,
+        address indexed user,
         uint256 amount
     );
 
     constructor() {
-        owner = msg.sender;
+        owner =
+            msg.sender;
     }
 
     modifier onlyOwner() {
         require(
-            msg.sender == owner,
-            "Not owner"
+            msg.sender ==
+            owner,
+            "Owner only"
         );
         _;
     }
 
-    function depositReward(
-        address receiver
+    function assignReward(
+        address user
     )
         external
         payable
@@ -37,39 +44,55 @@ contract RewardVault {
     {
         require(
             msg.value > 0,
-            "No reward"
+            "Empty reward"
         );
 
-        rewards[receiver] += msg.value;
+        pendingRewards[user]
+            +=
+            msg.value;
 
-        emit RewardDeposited(
-            receiver,
+        totalDistributed
+            +=
+            msg.value;
+
+        emit RewardAssigned(
+            user,
             msg.value
         );
     }
 
-    function claimReward()
+    function claim()
         external
     {
-        uint256 amount =
-            rewards[msg.sender];
+        uint256 reward =
+            pendingRewards[
+                msg.sender
+            ];
 
         require(
-            amount > 0,
-            "Empty reward"
+            reward > 0,
+            "No reward"
         );
 
-        rewards[msg.sender] = 0;
-
-        payable(
+        pendingRewards[
             msg.sender
-        ).transfer(
-            amount
+        ] = 0;
+
+        (bool sent,) =
+            payable(
+                msg.sender
+            ).call{
+                value: reward
+            }("");
+
+        require(
+            sent,
+            "Transfer failed"
         );
 
         emit RewardClaimed(
             msg.sender,
-            amount
+            reward
         );
     }
 
@@ -82,6 +105,9 @@ contract RewardVault {
             uint256
         )
     {
-        return rewards[user];
+        return
+            pendingRewards[
+                user
+            ];
     }
 }
