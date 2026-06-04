@@ -9,7 +9,7 @@ Transparent reward assignment and decentralized claiming protocol built on OPN C
 ## Deployment
 
 - Network: OPN Testnet
-- Contract: `0x27E83A6d1807B71C9E909640B2A0Ce9683Ba464f`
+- Contract Address: `0x27E83A6d1807B71C9E909640B2A0Ce9683Ba464f`
 - Explorer: [View Contract](https://explorer.opn.network/address/0x27E83A6d1807B71C9E909640B2A0Ce9683Ba464f)
 - Live Demo: [Open App](https://opn-rewardvault.vercel.app)
 
