@@ -4,7 +4,12 @@
   <img src="./assets/preview.png" width="1000">
 </p>
 
-Live Demo: https://opn-rewardvault.vercel.app
+## Deployment
+
+- Network: OPN Testnet
+- Contract: `0x27E83A6d1807B71C9E909640B2A0Ce9683Ba464f`
+- Explorer: https://explorer.opn.network/address/0x27E83A6d1807B71C9E909640B2A0Ce9683Ba464f
+- Live Demo: https://opn-rewardvault.vercel.app
 
 A decentralized reward distribution vault protocol built on OPN Chain for Builders Season 1.
 
