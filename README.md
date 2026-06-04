@@ -1,6 +1,10 @@
 # RewardVault
 
-Live Demo:https://opn-rewardvault.vercel.app
+<p align="center">
+  <img src="./assets/preview.png" width="1000">
+</p>
+
+Live Demo: https://opn-rewardvault.vercel.app
 
 A decentralized reward distribution vault protocol built on OPN Chain for Builders Season 1.
 
