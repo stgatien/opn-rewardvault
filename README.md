@@ -85,3 +85,12 @@ Season 1 Builder Submission
 Experimental Prototype
 
 MIT License
+
+## Tech Stack
+
+* Solidity
+* HTML
+* CSS
+* JavaScript
+* OPN Chain
+* Vercel
